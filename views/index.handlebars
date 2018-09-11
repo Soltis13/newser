@@ -1,0 +1,22 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">
+    <img src="assets/wiredLogo.png" width="30" height="30" class="d-inline-block align-top" alt="Wired">
+    Wired ∙ Web Scrapper
+  </a>
+  <button id="scrape" class="btn btn-outline-white text-primary my-2 my-sm-0" type="submit">Scrape</button>
+</nav>
+
+<div id="wrapper">
+  <h2>Most Popular</h2>
+  <div id="articles">
+    {{#each articles}}
+      <h3 data-id={{this._id}}>{{this.headline}}</h3>
+      <p>{{this.link}}</p>
+      <p>Summary: {{this.summary}}</p>
+      <p>{{this.imageURL}}</p>
+      <p>{{this.articleDate}}</p>
+    {{/each}}
+  </div>
+  <div id="notes"></div>
+</div>
