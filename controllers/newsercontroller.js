@@ -6,6 +6,9 @@ let db = require("../models"); // Require all models
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/wiredDB");
+mongoose.connection.collections.articles.drop();
+
+
 
 // Exports
 module.exports = (app) => {
@@ -19,6 +22,7 @@ module.exports = (app) => {
       // Successfully found Articles, send them back to the client
       // res.json(dbArticle);
       res.render("index", {articles:dbArticle});
+    
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -27,8 +31,10 @@ module.exports = (app) => {
   });
 
 
+
   // A GET route for scraping the Wired/Most Popular website
   app.get("/scrape", function(req, res) {
+
     // First, grab the body of the html with request
     axios.get("https://www.wired.com/most-popular/").then((response) => {
       // Then, load that into cheerio and save it to $ for a shorthand selector
@@ -77,18 +83,23 @@ module.exports = (app) => {
             .then(function(dbArticle) {
               // View the added result in the console
               console.log(dbArticle);
+          
             })
             .catch(function(err) {
               // If an error occurred, send it to the client
               return res.json(err);
             });
+
         }
+
       });
         
       // If successfully scrape and save an Article, send a message to the client
       res.send("Scrape Complete");
     });
   });
+
+ 
 
   // Route for getting all Articles from the db
   app.get("/articles", function(req, res) {
@@ -97,7 +108,7 @@ module.exports = (app) => {
       .then(function(dbArticle) {
         // Successfully found Articles, send them back to the client
         // res.json(dbArticle);
-        res.render("index", {articles:dbArticle});
+        res.render("articles", {articles:dbArticle});
       })
       .catch(function(err) {
         // If an error occurred, send it to the client

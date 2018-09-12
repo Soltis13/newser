@@ -21,14 +21,10 @@
       </li>
     </ul>
   </div>
-  
-
-  {{!-- Button to scrap new articals --}}
-  <button id="scrape" class="btn btn-outline-white btn-danger my-2 my-sm-0" style="color:white" type="submit">Scrape new Articals</button>
 </nav>
 
 <div id="wrapper">
-  <h2 id='title'><u>Articals</u></h2>
+  <h2 id='title'><u>Saved Articals</u></h2>
   <div id="articles">
     {{#each articles}}
       <div class='container'>
@@ -39,9 +35,7 @@
       <p>{{this.articleDate}}</p>
       </div>
       <div>
- 
-      <button id="save" class="btn btn-outline-white btn-success my-2 my-sm-0" style="color:white" type="save">Save Article</button> 
-      </div>
+       </div>
       <hr>
 
     {{/each}}

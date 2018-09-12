@@ -1,15 +1,16 @@
 // *****************************************************************************
 // Server.js - This file is the initial starting point for the Node/Express server.
-//
 // ******************************************************************************
-// *** Dependencies
-// =============================================================
 
-var express = require("express"); // Express Server
-var bodyParser = require("body-parser"); // Post Body Request
-var logger = require("morgan"); // Logger
-let exphbs = require('express-handlebars'); // Templating Engine
+
+// *** Dependencies
+const express = require("express"); // Express Server
+const bodyParser = require("body-parser"); // Post Body Request
+const logger = require("morgan"); // Logger
+const exphbs = require('express-handlebars'); // Templating Engine
 var db = require("./models"); // Require all models
+
+
 
 // Set Default Port for Express and Heroku
 let PORT = process.env.PORT || 3000; 
@@ -18,6 +19,9 @@ let PORT = process.env.PORT || 3000;
 var app = express();
 
 // Configure middleware
+
+
+
 
 // Setup morgan logger for logging requests
 app.use(logger("dev"));
@@ -34,6 +38,7 @@ app.set("view engine", "handlebars");
 
 // Configure routes
 require("./controllers/newsercontroller.js")(app);
+
 
 // Start the server
 app.listen(PORT, function() {
