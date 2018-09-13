@@ -2,14 +2,12 @@
 // Server.js - This file is the initial starting point for the Node/Express server.
 // ******************************************************************************
 
-
 // *** Dependencies
 const express = require("express"); // Express Server
 const bodyParser = require("body-parser"); // Post Body Request
 const logger = require("morgan"); // Logger
 const exphbs = require('express-handlebars'); // Templating Engine
 var db = require("./models"); // Require all models
-
 
 
 // Set Default Port for Express and Heroku

@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
         {{!-- Button to saved articals --}}
-        <a class="nav-link" href="/articles">Saved Articals</a>
+        <a class="nav-link" href="/Savearticles">Saved Articals</a>
       </li>
     </ul>
   </div>
@@ -31,19 +31,18 @@
   <h2 id='title'><u>Articals</u></h2>
   <div id="articles">
     {{#each articles}}
-      <div class='container'>
-      
-      <p><a href='{{this.link}}'><h3 data-id={{this._id}}>{{this.headline}}</h3></a></p>
-      <p><h4>{{this.summary}}</h4></p>
-      <p><img src="{{this.imageURL}}" alt="{{this.imageURL}}" width="50%" height='auto'></p>
-      <p>{{this.articleDate}}</p>
-      </div>
-      <div>
- 
-      <button id="save" class="btn btn-outline-white btn-success my-2 my-sm-0" style="color:white" type="save">Save Article</button> 
-      </div>
-      <hr>
 
+      <div class='container'>
+     
+          
+          <p><a href='{{this.link}}'><h3 data-id={{this._id}}>{{this.headline}}</h3></a></p>
+          <p><h4>{{this.summary}}</h4></p>
+          <p><img src="{{this.imageURL}}" alt="{{this.imageURL}}" width="50%" height='auto'></p>
+          <p>{{this.articleDate}}</p>
+          </div>
+          <div><button id="saveArtical" class="btn btn-outline-white btn-success my-2 my-sm-0" style="color:white" type="submit" title="{{this.headline}}">Save Article</button> </div>
+          <hr>
+        
     {{/each}}
   </div>
   <div id="notes"></div>

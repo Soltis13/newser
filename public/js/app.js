@@ -6,9 +6,22 @@ $("#scrape").on("click", () => {
     })
     .then ((data) => {
       console.log("scraped")
+       redirect("/") //will then send the page to somewhere else after the post request occures.
+    
     })
   })
-  
+
+ $(document).on("click", "#saveArtical", function(){
+    // Grab the id associated with the article from the submit button
+    $.ajax({
+      method: "GET",
+      url: "/saveArtical"
+    })
+    .then ((data) => {
+      console.log("Saved")
+    })
+})
+
   
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {
@@ -43,6 +56,9 @@ $("#scrape").on("click", () => {
         }
       });
   });
+
+
+
   
   // When you click the savenote button
   $(document).on("click", "#savenote", function() {

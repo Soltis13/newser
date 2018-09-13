@@ -17,7 +17,7 @@
       </li>
       <li class="nav-item">
         {{!-- Button to saved articals --}}
-        <a class="nav-link" href="/articles">Saved Articals</a>
+        <a class="nav-link" href="/Savearticles">Saved Articals</a>
       </li>
     </ul>
   </div>
@@ -25,8 +25,8 @@
 
 <div id="wrapper">
   <h2 id='title'><u>Saved Articals</u></h2>
-  <div id="articles">
-    {{#each articles}}
+  <div id="Savearticles">
+    {{#each Savearticles}}
       <div class='container'>
       
       <p><a href='{{this.link}}'><h3 data-id={{this._id}}>{{this.headline}}</h3></a></p>
