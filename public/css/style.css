@@ -24,7 +24,8 @@ h1 {
 #articles {
   display: inline-block;
   overflow: auto;
-  padding-bottom: 1em;
+  padding: 1em;
+  
   margin: 1em auto;
   border-bottom: 2px solid grey;
   border-right: 2px solid grey;
@@ -33,7 +34,9 @@ h1 {
  
 }
 #savebutton{
+  position: absolute;
   float:right;
+  bottom:0;
 }
 
 textarea, input {
