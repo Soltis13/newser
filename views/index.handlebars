@@ -18,28 +18,28 @@
       </li>
     </ul>
   </div>
-</nav>
-
-{{!-- Alert element --}}
+  {{!-- Alert element --}}
 	<div class="alert alert-danger collapse mt-2" role="alert">
 		<a href="#" class="close">&times;</a>
 		<p id="alert-msg"></p>
 	</div>
+</nav>
 
-{{!-- <div id="wrapper">
+
+
+<div id="wrapper">
   <div class="row">
     <div class="col">
       
     </div>
-  </div> --}}
-<div class="container">
-    <div class="row">
-      <div class="col">
-        <div id="articles">
-
-          <div class="card-columns">
+  </div>
+  </div>
+<div class="container"  >
+    <div class="row" >        
+            
             {{#each articles}}
-              <div class="" style="width: 18rem;">
+            
+              <div class="col-md-6" id="articles" >
 
                 <img class="card-img-top" src="{{this.imageURL}}" alt="Card image cap">
 
@@ -53,24 +53,27 @@
                     <i class="far fa-edit showNote" data-id="{{this._id}}" data-headline="{{this.headline}}" data-toggle="modal" data-target="#noteModal"></i>
                     <i class="far fa-trash-alt deleteArticle" data-id="{{this._id}}"></i>
                   {{else}}
-                    <i class="fas fa-plus addArticle" data-headline="{{this.headline}}" data-link="{{this.link}}" data-summary="{{this.summary}}" data-imageURL="{{this.imageURL}}" data-articleDate="{{this.articleDate}}"></i>
+                    
+                   
+                    <i class="far fa-edit addArticle" data-headline="{{this.headline}}" data-link="{{this.link}}" data-summary="{{this.summary}}" data-imageURL="{{this.imageURL}}" data-articleDate="{{this.articleDate}}"></i>
+                  
                   {{/if}}
                   </span>
 
                 </div>
 
               </div>
-
+                
               <hr>
+              
             {{/each}}
-          </div>
-
+          
+           
         </div>
-      </div>
-    </div>
+
   </div>
   <div id="notes"></div>
-{{!-- </div> --}}
+
 
 <div id="noteModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg" role="document">

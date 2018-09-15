@@ -27,11 +27,7 @@ $(document).ready(() => {
     })
   })
 
-  // Close any alert shown on the screen
-  //************************************************************
-  $('.close').click(function() {
-    $('.alert').hide();
-  })
+
 
   // (on click of deleteArticle class) Delete article
   //************************************************************
@@ -44,9 +40,17 @@ $(document).ready(() => {
       url: `/article/${id}`
     })
     .then ((data) => {
-      console.log("article deleted")
+      // Display modal with 'article delete'
+      $("#alert-msg").text("Article Deleted!")
+      $(".alert").show();
       location.reload();
     })
+  })
+
+  // Close any alert shown on the screen
+  //************************************************************
+  $('.close').click(function() {
+    $('.alert').hide();
   })
 
   // (on click of showNote) 
@@ -70,78 +74,33 @@ $(document).ready(() => {
     })
     // With that done, add the note information to the page
     .then(function(data) {
-      console.log(`get notes/id: ${JSON.stringify(data)}`);
-      let notes = [];
-      data.forEach((note) =>{
-        console.log(`note: ${JSON.stringify(note)}`)
-        console.log(note.article.headline)
-        console.log(note.body)
-        console.log(note.name)
-        
-        const n = `<div class="card shadow p-3 mb-5 bg-white rounded">`
-          + `<div class="card-body">`
-          + `<blockquote class="blockquote mb-0">`
-          + `<p class="note-body">${note.body}</p>`
-          + `<footer class="blockquote-footer">${note.name}<span style="float:right"><i class="far fa-trash-alt delete-note" data-id="${note._id}" data-dismiss="modal"></i></span></footer>`
-          + `</blockquote></div></div>`
+      //TODO
+      //create notes array
+      //foreach note found, display out in div
+      //reference model-body for add comment and add name
 
-        notes.push(n);
-      })
-      
-      $(".modal-body").append(notes);
-
-      const addComment = `<form>
-          <textarea id="bodyInput" class="form-control-sm" placeholder="Add comments..." rows="3"></textarea>
-          <textarea id="nameInput" class="form-control-sm" placeholder="Your name"></textarea>
-        </form>`
-
-      $(".modal-body").append(addComment);
     });
   });
+//TODO on click of saveNote
+  ////pull data-id
+  //ajax post request for /note
+  //.then clear model body
+
+//ToDO on click of deleteNote
+    //pull data-id
+    //ajax post call delete
+    //
+
 
   // (on click of saveNote)
   //************************************************************
   $(document).on("click", "#saveNote", function() {
-    // Grab the id associated with the article from the submit button
-    var articleId = $(this).attr("data-id");
-    //console.log(`articleId: ${articleId}`)
-
-    // POST Save note
-    $.ajax({
-      method: "POST",
-      url: "/note",
-      data: {
-        name: $("#nameInput").val(),
-        body: $("#bodyInput").val(),
-        article: articleId
-      }
-    })
-      // With that done
-      .then(function(data) {
-        // Log the response
-        console.log(data);
-        // Empty the notes section
-        $("#modal-body").empty();
-      });
-
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#nameInput").val("");
-    $("#bodyInput").val("");
-  });
-})
-
-// (on click of delete-note) 
-//************************************************************
-$(document).on("click", ".delete-note", function(event) {
-  event.preventDefault();
-
-  const id = $(this).attr("data-id")
-  $.ajax({
-    method: "DELETE",
-    url: `/note/${id}`
+    
   })
-  .then ((data) => {
-    console.log("note deleted")
-    location.reload();
+
+  // (on click of delete-note) 
+  //************************************************************
+  $(document).on("click", ".delete-note", function(event) {
+
   })
 })

@@ -105,6 +105,20 @@ module.exports = (app) => {
   // POST Routes
   // ******************************************************************************
 
+    // (/note) Route for saving an Article's Note
+  // ******************************************************************************
+  app.post("/note", function(req, res) {
+    // Create new and pass req.body to the entry
+    db.Note.create(req.body)
+      .then(function(dbNote) {
+        res.json(dbNote);
+      })
+      .catch(function(err) {
+        // If an error occurred, send it to the client
+        res.json(err);
+      });
+  });
+  
   // (/saveArticle) - Route for saving an Article
   // ******************************************************************************
   app.post("/saveArticle", (req,res) => {
@@ -130,19 +144,7 @@ module.exports = (app) => {
     })
   })
 
-  // (/note) Route for saving an Article's Note
-  // ******************************************************************************
-  app.post("/note", function(req, res) {
-    // Create new and pass req.body to the entry
-    db.Note.create(req.body)
-      .then(function(dbNote) {
-        res.json(dbNote);
-      })
-      .catch(function(err) {
-        // If an error occurred, send it to the client
-        res.json(err);
-      });
-  });
+
 
   // ******************************************************************************
   // DELETE Routes
