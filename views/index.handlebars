@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
   <a class="navbar-brand" href="/">
-    <img width="auto" height="30" class="d-inline-block align-top" alt="Wired Scrapper">
+    <img href="" width="auto" height="30" class="d-inline-block align-top" alt="Wired Scrapper">
     
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +39,7 @@
             
             {{#each articles}}
             
-              <div class="col-md-6" id="articles" >
+              <div class="col-md-5" id="articles" >
 
                 <img class="card-img-top" src="{{this.imageURL}}" alt="Card image cap">
 
@@ -50,12 +50,12 @@
 
                   <span style="float:right">
                   {{#if this._id}}
-                    <i class="far fa-edit showNote" data-id="{{this._id}}" data-headline="{{this.headline}}" data-toggle="modal" data-target="#noteModal"></i>
+                    <i class="far fa-comment showNote" data-id="{{this._id}}" data-headline="{{this.headline}}" data-toggle="modal" data-target="#noteModal"></i>
                     <i class="far fa-trash-alt deleteArticle" data-id="{{this._id}}"></i>
                   {{else}}
                     
                    
-                    <i class="far fa-edit addArticle" data-headline="{{this.headline}}" data-link="{{this.link}}" data-summary="{{this.summary}}" data-imageURL="{{this.imageURL}}" data-articleDate="{{this.articleDate}}"></i>
+                    <i class="far fa-save addArticle" data-headline="{{this.headline}}" data-link="{{this.link}}" data-summary="{{this.summary}}" data-imageURL="{{this.imageURL}}" data-articleDate="{{this.articleDate}}"></i>
                   
                   {{/if}}
                   </span>

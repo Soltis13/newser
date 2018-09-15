@@ -6,12 +6,11 @@ font-family: 'Open Sans', sans-serif; */
 
 body { 
   font-family: 'Roboto', sans-serif;
-  background-color: rgba(0,0,0,0.035);
+  background-color: lightcyan;
 }
 h1 {
   font-family: 'Londrina Solid', cursive;
-  /* font-weight: 400; */
-  /* font-size: 45px; */
+
 }
 .add-article, .delete-article, .show-note, .delete-note {
   cursor: pointer;
@@ -28,6 +27,9 @@ h1 {
   padding-bottom: 1em;
   margin: 1em auto;
   border-bottom: 2px solid grey;
+  border-right: 2px solid grey;
+
+  background-color:whitesmoke;
  
 }
 #savebutton{

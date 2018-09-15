@@ -118,7 +118,7 @@ module.exports = (app) => {
         res.json(err);
       });
   });
-  
+
   // (/saveArticle) - Route for saving an Article
   // ******************************************************************************
   app.post("/saveArticle", (req,res) => {
@@ -128,8 +128,7 @@ module.exports = (app) => {
       if (dbArticle.length ===0){
         db.Article.create(req.body)
         .then(function(dbArticle) {
-          // View the added result in the console
-          console.log(dbArticle);
+    
           res.send("status 200")
         })
         .catch(function(err) {

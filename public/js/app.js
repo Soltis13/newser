@@ -22,8 +22,9 @@ $(document).ready(() => {
     })
     .then ((data) => {
       // Display modal with 'article saved'
-      $("#alert-msg").text("Article Saved!")
-      $(".alert").show();
+      // $("#alert-msg").text()
+      // $(".alert").show();
+      alert("Article Saved!");
     })
   })
 
@@ -41,8 +42,8 @@ $(document).ready(() => {
     })
     .then ((data) => {
       // Display modal with 'article delete'
-      $("#alert-msg").text("Article Deleted!")
-      $(".alert").show();
+ 
+      alert("Article Deleted!");
       location.reload();
     })
   })
