@@ -6,11 +6,13 @@ let cheerio = require('cheerio'); // Web Scrapper
 let mongoose = require('mongoose'); // MongoDB ORM
 let db = require("../models"); // Require all models
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-mongoose.Promise = Promise;
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/WiredDB";
 
+// Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/wiredDB");
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 // Exports
 module.exports = (app) => {
